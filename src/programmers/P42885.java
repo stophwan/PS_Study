@@ -2,12 +2,10 @@ package programmers;
 
 import java.util.Arrays;
 
-
 // 코딩 고득점 kit, 그리디, 구명보트, ***
 public class P42885 {
     public int solution(int[] people, int limit) {
         int answer = 0;
-        int tmp = limit;
         Arrays.sort(people);
 
         int min_idx = 0;
