@@ -10,11 +10,11 @@ public class P87694 {
     int[] dy = {0,0,1,-1};
     public int solution(int[][] rectangle, int characterX, int characterY, int itemX, int itemY) {
         draw_graph(rectangle);
-        int answer = bfs(rectangle, characterX*2, characterY*2, itemX*2, itemY*2);
+        int answer = bfs(characterX*2, characterY*2, itemX*2, itemY*2);
         return answer;
     }
 
-    public int bfs(int[][] rectangle, int characterX, int characterY, int itemX, int itemY) {
+    public int bfs(int characterX, int characterY, int itemX, int itemY) {
         Queue<int[]> q = new LinkedList<>();
         visited[characterX][characterY] = 1;
         int[] arr = {characterX, characterY,0};
@@ -25,7 +25,6 @@ public class P87694 {
             int y = q.peek()[1];
             int cnt = q.peek()[2];
             if(x == itemX && y == itemY){
-                System.out.println(cnt);
                 return cnt/2;
             }
             q.poll();
