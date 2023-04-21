@@ -7,7 +7,6 @@ public class P43163 {
     boolean[] visited;
     int answer = (int)1e9;
     public int solution(String begin, String target, String[] words) {
-        boolean notIn = true;
         this.words = words;
         boolean containsTarget = Arrays.stream(words).anyMatch(word -> word.equals(target));
         if(!containsTarget) return 0;
