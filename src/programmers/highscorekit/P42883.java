@@ -1,4 +1,4 @@
-package programmers;
+package programmers.highscorekit;
 
 // 그리디, 큰 수 만들기 **
 public class P42883 {

@@ -1,4 +1,4 @@
-package programmers;
+package programmers.highscorekit;
 
 // 그리디, 조이스틱, **
 // 경우를 나누는 것이 매우 중요

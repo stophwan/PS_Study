@@ -1,4 +1,4 @@
-package programmers;
+package programmers.highscorekit;
 
 import java.util.Arrays;
 import java.util.LinkedList;

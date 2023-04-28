@@ -1,4 +1,4 @@
-package programmers;
+package programmers.highscorekit;
 
 // 최소 직사각형, 완전탐색, 프로그래머스 고득점 Kit
 public class P86491 {

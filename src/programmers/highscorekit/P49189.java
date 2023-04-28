@@ -1,4 +1,4 @@
-package programmers;
+package programmers.highscorekit;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -14,7 +14,7 @@ public class P49189 {
         visited = new int[n+1];
         graph = new ArrayList[n+1];
         for(int i=0; i<n+1; i++) {
-            graph[i] = new ArrayList<Integer>();
+            graph[i] = new ArrayList<>();
         }
         for(int[] e: edge) {
             graph[e[0]].add(e[1]);

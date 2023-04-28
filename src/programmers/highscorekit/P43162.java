@@ -1,4 +1,4 @@
-package programmers;
+package programmers.highscorekit;
 
 // 네트워크, dfs, 프로그래머스 고득점 kit
 public class P43162 {

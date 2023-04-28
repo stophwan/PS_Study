@@ -1,4 +1,4 @@
-package programmers;
+package programmers.highscorekit;
 
 import java.util.HashSet;
 import java.util.Set;

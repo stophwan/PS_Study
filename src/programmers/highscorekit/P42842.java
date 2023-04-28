@@ -1,4 +1,4 @@
-package programmers;
+package programmers.highscorekit;
 
 // 카펫, 완전탐색 , *
 public class P42842 {

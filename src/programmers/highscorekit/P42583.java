@@ -1,4 +1,4 @@
-package programmers;
+package programmers.highscorekit;
 
 import java.util.LinkedList;
 import java.util.Queue;
