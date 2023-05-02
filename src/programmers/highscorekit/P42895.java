@@ -10,7 +10,7 @@ public class P42895 {
     public int solution(int N, int number) {
         list = new ArrayList<>();
         for(int i=0; i<=8; i++) {
-            list.add(new HashSet<Integer>());
+            list.add(new HashSet<>());
         }
         list.get(1).add(N);
         if(number==N){
