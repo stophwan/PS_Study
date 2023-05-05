@@ -1,4 +1,4 @@
-package programmers.highscorekit;
+package programmers.highscorekit.hash;
 
 import java.util.ArrayList;
 import java.util.HashMap;
