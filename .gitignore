@@ -1,6 +1,6 @@
 
 .idea/
-
+.DS_Store
 # IntelliJ
 out/
 PS_Study.iml
