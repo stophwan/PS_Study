@@ -1,4 +1,4 @@
-package programmers.highscorekit;
+package programmers.highscorekit.greedy;
 
 
 import java.util.Arrays;

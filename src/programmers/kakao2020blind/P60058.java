@@ -1,66 +1,58 @@
 package programmers.kakao2020blind;
 
-import java.util.Stack;
-
 public class P60058 {
 
     public String solution(String p) {
-        if(checkRightString(p)){
-            return p;
-        }
-        String answer = dfs(p);
-        return answer;
+        return solve(p);
     }
 
-    public String dfs(String s){
-        if(s.equals("")){
-            return "";
+    public String solve(String s){
+        if(s.length()==0){
+            return s;
         }
-        String u = "";
-        String v = "";
-        int l = 0;
-        int r = 0;
-        for(int i=0; i<s.length(); i++) {
+        int idx = getBalanceIdx(s);
+        String u = s.substring(0,idx+1);
+        String v = s.substring(idx+1);
+        if(isCorrect(u)){
+            return u + solve(v);
+        }
+        u=u.substring(1,u.length()-1);
+        u = u.replace("(", ".");
+        u = u.replace(")", "(");
+        u = u.replace(".", ")");
+        return "(" + solve(v) + ")" + u;
+    }
+
+    public int getBalanceIdx(String s) {
+        int lcnt = 0;
+        int rcnt = 0;
+        for(int i=0; i<s.length(); i++){
             if(s.charAt(i)=='('){
-                l++;
+                lcnt++;
             }
             if(s.charAt(i)==')'){
-                r++;
+                rcnt++;
             }
-            if(l>0 && r>0 && l==r){
-                u = s.substring(0,i+1);
-                v = s.substring(i+1, s.length());
-                break;
+            if(lcnt==rcnt){
+                return i;
             }
         }
-        if(checkRightString(u)){
-            return u + dfs(v);
-        }
-        else{
-            u = u.substring(1,u.length()-1);
-            u = u.replace("(", ".");
-            u = u.replace(")", "(");
-            u = u.replace(".", ")");
-            return "(" + dfs(v) + ")" + u;
-        }
-
+        return s.length()-1;
     }
 
-    public boolean checkRightString(String s){
-        Stack<Character> stack = new Stack<>();
-        for(int i=0; i<s.length(); i++) {
-            if(s.charAt(i)=='(') {
-                stack.push('(');
+    private boolean isCorrect(String s) {
+        int left = 0;
+        int right = 0;
+        for (int i = 0; i < s.length(); i++) {
+            if (s.charAt(i) == '(') {
+                left++;
+            } else {
+                right++;
             }
-            else{
-                if(stack.isEmpty()){
-                    return false;
-                }
-                else{
-                    stack.pop();
-                }
+            if (right > left) {
+                return false;
             }
         }
-        return stack.isEmpty();
+        return true;
     }
 }

@@ -1,4 +1,4 @@
-package programmers.highscorekit;
+package programmers.highscorekit.greedy;
 
 // 그리디, 큰 수 만들기 **
 public class P42883 {

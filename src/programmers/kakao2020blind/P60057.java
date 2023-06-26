@@ -9,13 +9,13 @@ public class P60057 {
             String word = s.substring(0,i);
             int cnt = 1;
             for(int j=i; j<=len; j+=i){
-                int end = Math.min(j+1, len);
+                int end = Math.min(j+i, len);
                 if(word.equals(s.substring(j,end))){
                     cnt++;
                 }
                 else{
                     if(cnt>=2){
-                        sb.append((cnt + word));
+                        sb.append(cnt).append(word);
                     }
                     else{
                         sb.append(word);
