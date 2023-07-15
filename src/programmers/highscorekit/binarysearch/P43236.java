@@ -1,4 +1,4 @@
-package programmers.highscorekit;
+package programmers.highscorekit.binarysearch;
 
 import java.util.Arrays;
 
