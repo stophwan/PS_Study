@@ -1,4 +1,4 @@
-package programmers.highscorekit;
+package programmers.highscorekit.dfsbfs;
 
 import java.util.ArrayList;
 import java.util.Collections;

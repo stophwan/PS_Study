@@ -1,4 +1,4 @@
-package programmers.highscorekit;
+package programmers.highscorekit.stackqueue;
 
 import java.util.ArrayDeque;
 import java.util.Deque;

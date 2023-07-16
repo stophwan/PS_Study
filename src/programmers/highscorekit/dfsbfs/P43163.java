@@ -1,4 +1,4 @@
-package programmers.highscorekit.bruteforce;
+package programmers.highscorekit.dfsbfs;
 
 import java.util.Arrays;
 
