@@ -3,7 +3,7 @@ package basiccode;
 import java.util.ArrayList;
 
 //순열, 중복순열, 조합, 중복조합
-public class Basic1 {
+public class PermutationCombination {
 
     static int[] arr = {1,2,3,4};
     static int n = 4, r = 2;

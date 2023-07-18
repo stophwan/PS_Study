@@ -3,7 +3,7 @@ package basiccode;
 import java.util.Arrays;
 
 //2차원 배열 회전
-public class Basic2 {
+public class BoardRotate {
     static int n;
 
     public static int[][] rotateToRight(int[][] board) {
