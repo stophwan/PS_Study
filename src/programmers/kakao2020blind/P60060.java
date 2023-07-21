@@ -22,7 +22,7 @@ public class P60060 {
             Collections.sort(backMap.get(key));
         }
         for(int i=0; i<queries.length; i++) {
-            if(!frontMap.keySet().contains(queries[i].length())){
+            if(!frontMap.containsKey(queries[i].length())){
                 answer[i] = 0;
                 continue;
             }
