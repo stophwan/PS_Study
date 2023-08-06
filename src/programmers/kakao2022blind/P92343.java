@@ -1,19 +1,17 @@
 package programmers.kakao2022blind;
 
-import java.util.ArrayList;
-import java.util.List;
 
 public class P92343 {
 	int[] info;
 	int[][] graph;
 	int len;
 	int answer = 0;
-	boolean[][][] visited;
+	boolean[][] visited;
 	public int solution(int[] info, int[][] edges) {
 		len = info.length;
 		this.info = info;
 		graph = new int[len][len];
-		visited = new boolean[len][len+1][len+1];
+		visited = new boolean[len][len+1];
 
 		for(int[] edge: edges) {
 			graph[edge[0]][edge[1]] = 1;
@@ -26,7 +24,6 @@ public class P92343 {
 	}
 
 	public void dfs(int now, int sheep, int wolf) {
-		System.out.println("now: " + now + " sheep: " + sheep + " wolf: " + wolf);
 		if(info[now]==0) {
 			sheep++;
 		}
@@ -36,18 +33,19 @@ public class P92343 {
 
 		if(sheep <= wolf) return;
 
+		int tmp = info[now];
+		info[now] = -1;
+		visited[now][sheep] = true;
+
 		answer = Math.max(sheep, answer);
 
 		for(int i=0; i<len; i++) {
-			if(graph[now][i]==1 && !visited[i][sheep][wolf]) {
-				int tmp = info[now];
-				info[now] = -1;
-				visited[now][sheep][wolf] = true;
+			if(graph[now][i]==1 && !visited[i][sheep]) {
 				dfs(i, sheep, wolf);
-				visited[now][sheep][wolf] = false;
-				info[now] = tmp;
 			}
 		}
+		visited[now][sheep] = false;
+		info[now] = tmp;
 	}
 
 	public static void main(String[] args) {
