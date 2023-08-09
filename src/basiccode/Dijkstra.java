@@ -25,6 +25,7 @@ public class Dijkstra {
                 }
             }
         }
+        Arrays.sort(dist);
         return dist;
     }
 
