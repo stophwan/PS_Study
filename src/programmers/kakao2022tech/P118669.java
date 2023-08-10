@@ -51,6 +51,7 @@ public class P118669 {
 	public int[] bfs(int n, int[] gates) {
 		Queue<Node> pq = new PriorityQueue<>(Comparator.comparingInt(o -> o.weight));
 		int[] intensity = new int[n+1];
+		int[] visited = new int[n+1];
 		Arrays.fill(intensity, Integer.MAX_VALUE);
 		for(int gate: gates) {
 			intensity[gate] = 0;
@@ -59,9 +60,10 @@ public class P118669 {
 		while(!pq.isEmpty()) {
 			Node tmp = pq.poll();
 			int from = tmp.to;
-			if(tmp.weight > intensity[from]) {
+			if(visited[from]==1) {
 				continue;
 			}
+			visited[from] = 1;
 			for(Node node: graph.get(from)){
 				if(intensity[node.to] > Math.max(node.weight, intensity[from])){
 					intensity[node.to] = Math.max(node.weight, intensity[from]);
