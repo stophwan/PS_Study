@@ -1,6 +1,7 @@
 package programmers.kakao2023blind;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -53,6 +54,6 @@ public class P150370 {
 	public static void main(String[] args) {
 		String[] terms = new String[]{"Z 3", "D 5"};
 		String[] privacies = new String[]{"2019.01.01 D", "2019.11.15 Z", "2019.08.02 D", "2019.07.01 D", "2018.12.28 Z"};
-		System.out.println(new P150370().solution("2020.01.01", terms, privacies));
+		System.out.println(Arrays.toString(new P150370().solution("2020.01.01", terms, privacies)));
 	}
 }

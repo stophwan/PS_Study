@@ -47,7 +47,6 @@ public class P150368 {
 		for(int i=0; i<4; i++) {
 			discount[cnt] = discountRate[i];
 			permute(cnt+1, discount);
-			discount[cnt] = 0;
 		}
 	}
 }
