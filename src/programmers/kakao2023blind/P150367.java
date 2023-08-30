@@ -3,7 +3,7 @@ package programmers.kakao2023blind;
 import java.util.Arrays;
 
 public class P150367 {
-	boolean check = true;
+	int check = 1;
 	public int[] solution(long[] numbers) {
 		int[] answer = new int[numbers.length];
 		int idx = 0;
@@ -12,13 +12,13 @@ public class P150367 {
 			binary = addZero(binary);
 			if(binary.length()==1) {
 				if(binary.equals("0")) {
-					check = false;
+					check = 0;
 				}
 			}
 			check(binary);
-			answer[idx] = check ? 1 : 0;
+			answer[idx] = check;
 			idx++;
-			check = true;
+			check = 1;
 
 		}
 		return answer;
@@ -34,7 +34,7 @@ public class P150367 {
 		int rc = (root+len)/2;
 		if(binary.charAt(lc)=='1' || binary.charAt(rc)=='1') {
 			if(binary.charAt(root)=='0') {
-				check = false;
+				check = 0;
 				return;
 			}
 		}
@@ -57,6 +57,7 @@ public class P150367 {
 		sb.append(binary);
 		return sb.toString();
 	}
+
 
 	public static void main(String[] args) {
 		long[] numbers = new long[]{10000000000L};
