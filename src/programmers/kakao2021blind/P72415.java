@@ -18,7 +18,7 @@ public class P72415 {
         this.board = board;
         boolean[] visited = new boolean[9];
         for(int i=0; i<4; i++) {
-            for(int j=0; j< 4; j++) {
+            for(int j=0; j<4; j++) {
                 if(board[i][j]>0) {
                     if(!visited[board[i][j]]) {
                         map[board[i][j]][0][0] = i;
