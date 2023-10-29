@@ -6,25 +6,24 @@ import java.util.Queue;
 // 다리를 지나는 트럭, 스택/큐
 public class P42583 {
     public int solution(int bridge_length, int weight, int[] truck_weights) {
-        Queue<int []> q = new LinkedList<>();
-        q.offer(new int[]{truck_weights[0], 1+bridge_length});
-        int tmp_w = truck_weights[0];
-        int answer = 1;
-        int idx = 1;
-        while(!q.isEmpty()) {
-            answer+=1;
-
-            if(q.peek()[1] == answer){
-                tmp_w -= q.poll()[0];
+        int time = 0;
+        Queue<Integer> q = new LinkedList<>();
+        int currentIdx = 0;
+        int currentWeight = 0;
+        while(currentIdx < truck_weights.length) {
+            if(q.size() == bridge_length) {
+                currentWeight -= q.poll();
             }
-
-            if(idx<truck_weights.length && tmp_w + truck_weights[idx] <= weight && q.size() < bridge_length) {
-                tmp_w += truck_weights[idx];
-                q.offer(new int[]{truck_weights[idx], answer+bridge_length});
-                idx++;
+            if(currentWeight + truck_weights[currentIdx] > weight) {
+                q.offer(0);
+            } else {
+                q.offer(truck_weights[currentIdx]);
+                currentWeight += truck_weights[currentIdx];
+                currentIdx++;
             }
+            time++;
         }
-        return answer;
+        return time + bridge_length;
     }
 
     public static void main(String[] args) {
