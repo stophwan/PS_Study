@@ -35,7 +35,7 @@ public class BinarySearch {
 
     public static void main(String[] args) {
         int[] arr = {1,1,1,2,2,2,3,3,3,4,4,4,5,5,5};
-        int start = 0, end = arr.length;
+        int end = arr.length;
         System.out.println("lowerBound is " + lowerBound(arr, 0, end, 3));
         System.out.println("upperBound is " + upperBound(arr, 0, end, 3));
     }
