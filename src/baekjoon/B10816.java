@@ -7,62 +7,43 @@ import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class B10816 {
-
-	public static int upperBound(int n, int[] now, int target) {
-		int left = 0;
-		int right = n-1;
-
+	public static int search(int n, int m, int[] houses) {
+		int left = 1;
+		int right = houses[n-1] - houses[0] + 1;
 		while(left <= right) {
 			int mid = (left + right)/2;
-			if(now[mid] <= target) {
-				left = mid + 1;
-			} else {
+			if(calculate(mid, n, houses) < m) {
 				right = mid - 1;
+			} else {
+				left = mid + 1;
 			}
 		}
 		return right;
 	}
 
-	public static int lowerBound(int n, int[] now, int target) {
-		int left = 0;
-		int right = n-1;
+	public static int calculate(int dist, int n, int[] houses) {
+		int cnt = 1;
+		int lastLocate = houses[0];
 
-		while(left <= right) {
-			int mid = (left + right)/2;
-			if(now[mid] < target) {
-				left = mid + 1;
-			} else {
-				right = mid - 1;
+		for(int i=1; i<n; i++) {
+			if(houses[i] - lastLocate >= dist) {
+				lastLocate = houses[i];
+				cnt++;
 			}
 		}
-		return left;
+		return cnt;
 	}
 
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-
-		int n = Integer.parseInt(br.readLine());
-		int[] now = new int[n];
 		StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+		int n = Integer.parseInt(st.nextToken());
+		int m = Integer.parseInt(st.nextToken());
+		int[] houses = new int[n];
 		for(int i=0; i<n; i++) {
-			now[i] = Integer.parseInt(st.nextToken());
+			houses[i] = Integer.parseInt(br.readLine());
 		}
-		int m = Integer.parseInt(br.readLine());
-		st = new StringTokenizer(br.readLine(), " ");
-		int[] targets = new int[m];
-		for(int i=0; i<m; i++) {
-			targets[i] = Integer.parseInt(st.nextToken());
-		}
-
-		Arrays.sort(now);
-		StringBuilder sb = new StringBuilder();
-		for(int target: targets) {
-			int max = upperBound(n, now, target);
-			int min = lowerBound(n, now, target);
-			sb.append(max - min + 1).append(" ");
-		}
-		System.out.println(sb);
+		Arrays.sort(houses);
+		System.out.println(search(n, m, houses));
 	}
 }
-
-//System.out.println(max + " " + min);
