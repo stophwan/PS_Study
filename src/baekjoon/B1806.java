@@ -8,20 +8,15 @@ import java.util.StringTokenizer;
 public class B1806 {
 
 	public static int subSum(int n, int m, int[] arr) {
-		int l1 = 0;
-		int l2 = 1;
-		int min = n+1;
-		while(l1 <= n && l2 <= n) {
-			int tmp = arr[l2] - arr[l1];
-			if(tmp < m) {
+		int l1 = 0, l2 = 0;
+		int min = Integer.MAX_VALUE;
+		while(l1 <= l2 && l2 <= n) {
+			if(arr[l2] - arr[l1] < m) {
 				l2++;
 			} else {
 				min = Math.min(min, l2 - l1);
 				l1++;
 			}
-		}
-		if(min==n+1) {
-			return 0;
 		}
 		return min;
 	}
@@ -40,6 +35,10 @@ public class B1806 {
 			arr[i] += arr[i-1];
 		}
 		int ans = subSum(n, m, arr);
+		if(ans == Integer.MAX_VALUE) {
+			System.out.println(0);
+			return;
+		}
 		System.out.println(ans);
 	}
 }
