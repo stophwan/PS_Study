@@ -4,15 +4,13 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
 import java.util.StringTokenizer;
 
 public class S1244 {
 
 	static int max = 0;
 	static boolean check = false;
-	static Set<String> set = new HashSet<>();
+
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int testCase = Integer.parseInt(br.readLine());
@@ -46,9 +44,9 @@ public class S1244 {
 		if(cnt == change) {
 			int a = 1;
 			int res = 0;
-			for(int i= num.length-1; i>=0; i--) {
+			for(int i=num.length-1; i>=0; i--) {
 				res += num[i] * a;
-				a*=10;
+				a *= 10;
 			}
 			max = Math.max(max, res);
 			if(maxNum == max && change%2 == 0) {
