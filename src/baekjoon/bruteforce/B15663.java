@@ -13,18 +13,16 @@ public class B15663 {
 	static int m;
 	static int[] nums;
 	static boolean[] visited;
-	static Set<Integer> permute = new HashSet<>();
 
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st = new StringTokenizer(br.readLine(), " ");
 		n = Integer.parseInt(st.nextToken());
 		m = Integer.parseInt(st.nextToken());
-
-		st = new StringTokenizer(br.readLine(), " ");
 		visited = new boolean[n];
 		nums = new int[n];
 		for(int i=0; i<n; i++) {
+			st = new StringTokenizer(br.readLine(), " ");
 			nums[i] = Integer.parseInt(st.nextToken());
 		}
 		Arrays.sort(nums);
@@ -40,6 +38,7 @@ public class B15663 {
 			System.out.println();
 			return;
 		}
+		// 7이 두개 있다면 7 이후가 가능한 가지수는 하나여야한다.
 		int last = 0;
 		for(int i=0; i<n; i++) {
 			if(visited[i]) {

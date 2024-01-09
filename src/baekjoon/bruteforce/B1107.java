@@ -12,7 +12,7 @@ public class B1107 {
 	static int m;
 	static boolean[] buttons;
 	static Set<Integer> visitNums = new HashSet();
-	
+
 	public static void main(String args[]) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		n = Integer.parseInt(br.readLine());
