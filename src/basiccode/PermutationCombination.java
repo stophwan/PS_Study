@@ -40,28 +40,28 @@ public class PermutationCombination {
     }
 
     //조합
-    public static void combination(int idx, ArrayList<Integer> list) {
-        if(list.size() == r) {
+    public static void combination(int idx, int cnt, ArrayList<Integer> list) {
+        if(cnt == r) {
             System.out.println(list);
             return;
         }
         for(int i=idx; i<n; i++) {
             list.add(arr[i]);
-            combination(i+1, list);
-            list.remove(list.size()-1);
+            combination(i+1, cnt+1, list);
+            list.remove(cnt);
         }
     }
 
     //중복조합
-    public static void duplicateCombination(int idx, ArrayList<Integer> list) {
-        if(list.size() == r) {
+    public static void duplicateCombination(int idx, int cnt, ArrayList<Integer> list) {
+        if(cnt == r) {
             System.out.println(list);
             return;
         }
         for(int i=idx; i<n; i++) {
             list.add(arr[i]);
-            duplicateCombination(i, list);
-            list.remove(list.size()-1);
+            duplicateCombination(i, cnt+1, list);
+            list.remove(cnt);
         }
     }
 
@@ -75,11 +75,11 @@ public class PermutationCombination {
         System.out.println("-------------------");
 
         System.out.println("조합");
-        combination(0, new ArrayList<>());
+        combination(0, 0, new ArrayList<>());
         System.out.println("-------------------");
 
         System.out.println("중복 조합");
-        duplicateCombination(0, new ArrayList<>());
+        duplicateCombination(0, 0, new ArrayList<>());
         System.out.println("-------------------");
     }
 
