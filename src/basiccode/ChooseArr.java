@@ -6,13 +6,13 @@ public class ChooseArr {
 	static int cnt;
 
 	static void choose1(int cnt, int idx, int[] res) {
-		if(idx==2) {
+		if(cnt==5) {
 			System.out.println(Arrays.toString(res));
 			return;
 		}
 		for(int i=idx; i<res.length; i++) {
 			res[i]++;
-			choose1(cnt+1, i+1, res);
+			choose1(cnt+1, i, res);
 			res[i]--;
 		}
 	}
@@ -34,8 +34,6 @@ public class ChooseArr {
 	}
 
 	public static void main(String[] args) {
-		int[] info = new int[]{0,1,1};
 		choose1(0, 0, new int[]{0,0,0});
-
 	}
 }

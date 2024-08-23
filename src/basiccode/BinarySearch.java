@@ -22,11 +22,11 @@ public class BinarySearch {
         int high = end;
         while (low <= high) {
             int mid = (low + high)/2;
-            if(target < arr[mid]) {
-                high = mid - 1;
+            if(target >= arr[mid]) {
+                low = mid + 1;
             }
             else {
-                low = mid + 1;
+                high = mid - 1;
             }
         }
         return high;
@@ -34,9 +34,15 @@ public class BinarySearch {
 
 
     public static void main(String[] args) {
-        int[] arr = {1,1,1,2,2,2,3,3,3,4,4,4,5,5,5};
+        int[] arr = {1,1,2,3,3,3,4,5,5,5};
+        int[] arr2 = {1,2,2,4,5};
         int end = arr.length;
+        // 1 2 3
+        //   r l
+        System.out.println("binarySearch " + upperBound(arr, 0, end, 2));
         System.out.println("lowerBound is " + lowerBound(arr, 0, end, 3));
         System.out.println("upperBound is " + upperBound(arr, 0, end, 3));
+        System.out.println("parametric lower search is " + lowerBound(arr2, 0, arr2.length, 3));
+        System.out.println("parametric right search is " + upperBound(arr2, 0, arr2.length, 3));
     }
 }

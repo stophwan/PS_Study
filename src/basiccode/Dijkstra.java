@@ -10,7 +10,9 @@ public class Dijkstra {
         PriorityQueue<int[]> pq = new PriorityQueue<>(Comparator.comparingInt(o -> o[1]));
         boolean[] visited = new boolean[n+1];
         int[] dist = new int[n+1];
+        Arrays.fill(dist, Integer.MAX_VALUE);
         pq.add(new int[]{start,0});
+        dist[start] = 0;
         while(!pq.isEmpty()) {
             int[] tmp = pq.poll();
             int node = tmp[0];
@@ -19,7 +21,7 @@ public class Dijkstra {
             }
             visited[node] = true;
             for(int i=1; i<=n; i++) {
-                if(graph[node][i] > 0  && dist[node] + graph[node][i] > dist[i]) {
+                if(graph[node][i] > 0  && dist[node] + graph[node][i] < dist[i]) {
                     dist[i] = dist[node] + graph[node][i];
                     pq.offer(new int[]{i, dist[i]});
                 }
