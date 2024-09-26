@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
+//아이디어를 생각하지 못해 풀지 못한 문제
 public class BJ26093_고양이목에리본달기 {
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -24,7 +25,6 @@ public class BJ26093_고양이목에리본달기 {
 		int second = 0;
 		int firstIdx = -1;
 		for(int i=1; i<=n; i++) {
-
 			for(int j=0; j<k; j++) {
 				if(firstIdx != j) {
 					dp[i][j] = Math.max(first + board[i][j], dp[i][j]);
