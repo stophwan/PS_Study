@@ -1,4 +1,4 @@
-package baekjoon.bfs;
+package baekjoon.dfsbfs;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -76,4 +76,3 @@ public class BJ14923_미로탈출 {
 		return x >= 0 && x < n && y >= 0 && y < m;
 	}
 }
-
