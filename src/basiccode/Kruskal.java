@@ -14,10 +14,12 @@ public class Kruskal {
         if(parentA <= parentB) parent[parentB] = parentA;
         else parent[parentA] = parentB;
     }
+
     public static int find(int x) {
         if(parent[x] == x) return x;
         return parent[x] = find(parent[x]);
     }
+
     public static void main(String[] args) {
         graph = new int[][]{{1, 2, 6}, {1, 3, 3}, {1, 4, 1}, {2, 5, 4}, {3, 4, 2}, {3, 5, 5}, {4, 5, 7}};
         parent = new int[6];
@@ -35,6 +37,7 @@ public class Kruskal {
                 union(graph[i][0], graph[i][1]);
             }
         }
+        System.out.println(Arrays.toString(parent));
         System.out.println(total);
     }
 
