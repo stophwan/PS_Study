@@ -1,4 +1,4 @@
-package baekjoon;
+package baekjoon.mst;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
