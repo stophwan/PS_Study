@@ -62,7 +62,7 @@ public class BJ14923_미로탈출 {
 					if(graph[nx][ny] == 0 && !visited[nx][ny][wall]) {
 						q.add(new int[]{nx, ny, wall, cnt+1});
 						visited[nx][ny][wall] = true;
-					} else if(graph[nx][ny] == 1 && wall == 1 && !visited[nx][ny][0]) {
+					} else if(graph[nx][ny] == 1 && wall == 1 && !visited[nx][ny][1]) {
 						q.add(new int[]{nx, ny, 0, cnt+1});
 						visited[nx][ny][0] = true;
 					}
